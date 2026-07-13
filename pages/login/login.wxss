@@ -1,0 +1,232 @@
+/* pages/login/login.wxss */
+.auth-container {
+  padding: 40rpx 30rpx;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+/* 返回按钮 */
+.back-btn {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.back-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+}
+
+/* 标签切换 */
+.role-tabs {
+  display: flex;
+  background: white;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-bottom: 40rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 30rpx 0;
+  font-size: 30rpx;
+  color: #666;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #1890ff;
+  font-weight: bold;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 6rpx;
+  background-color: #1890ff;
+  border-radius: 3rpx;
+}
+
+/* 表单样式 */
+.form-container {
+  background: white;
+  border-radius: 10rpx;
+  padding: 40rpx 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+  padding: 30rpx 0;
+  position: relative;
+}
+
+.form-item:last-child {
+  margin-bottom: 0 !important;
+}
+
+.input-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.placeholder {
+  color: #999;
+}
+
+.action-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 30rpx 0;
+}
+
+.link-text {
+  font-size: 26rpx;
+  color: #1890ff;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #1890ff;
+  color: white;
+  font-size: 32rpx;
+  border-radius: 45rpx;
+  margin: 40rpx 0;
+}
+
+/* 第三方登录 */
+.social-login {
+  margin-top: 60rpx;
+}
+
+.divider {
+  position: relative;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1rpx;
+  background-color: #eee;
+  z-index: 1;
+}
+
+.divider-text {
+  position: relative;
+  display: inline-block;
+  padding: 0 20rpx;
+  background-color: white;
+  font-size: 26rpx;
+  color: #999;
+  z-index: 2;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons button {
+  background: none;
+  padding: 0;
+  margin: 0;
+  line-height: normal;
+}
+
+.social-icons button::after {
+  border: none;
+}
+
+.social-icons image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+/* 注册弹窗 */
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.register-modal {
+  width: 80%;
+  background-color: white;
+  border-radius: 10rpx;
+  padding: 40rpx 30rpx;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.modal-title {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.close-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.picker {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.sms-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24rpx;
+  padding: 10rpx 20rpx;
+  background-color: #1890ff;
+  color: white;
+  border-radius: 6rpx;
+  min-width: 160rpx;
+  text-align: center;
+  height: 60rpx;
+  line-height: 40rpx;
+}
+
+.sms-btn[disabled] {
+  background-color: #cccccc;
+}

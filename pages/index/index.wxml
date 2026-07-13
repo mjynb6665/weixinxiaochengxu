@@ -1,0 +1,86 @@
+<!-- index.wxml -->
+<view class="hospital-header">
+  <text class="hospital-title">{{hospitalName}}</text>
+</view>
+
+<view class="container">
+  <!-- 核心内容区 -->
+  <scroll-view class="main-content" scroll-y>
+    <!-- 搜索区 -->
+    <view class="search-box">
+      <input 
+        class="search-input" 
+        placeholder="输入医生/科室/症状" 
+        placeholder-class="placeholder"
+        bindinput="onSearch"
+      />
+      <button class="search-btn">搜索</button>
+    </view>
+
+    <!-- 导航菜单 -->
+    <view class="nav-items">
+      <text class="nav-item">首页</text>
+      <text class="nav-item" bindtap="goRegistration">预约挂号</text>
+      <text class="nav-item" bindtap="goProfile">个人中心</text>
+      <text class="nav-item" bindtap="goLogin">登录/注册</text>
+    </view>
+
+    <!-- 快捷操作 -->
+    <view class="quick-actions">
+      <view class="action-item" bindtap="goTodayRegistration">
+        <image class="action-icon" src="/images/today-reg.png"/>
+        <text>当天挂号</text>
+      </view>
+      <view class="action-item" bindtap="goRecords">
+        <image class="action-icon" src="/images/records.png"/>
+        <text>预约记录</text>
+      </view>
+      <view class="action-item" bindtap="goReports">
+        <image class="action-icon" src="/images/reports.png"/>
+        <text>报告查询</text>
+      </view>
+    </view>
+
+    <!-- 科室网格 -->
+    <view class="section-title">科室分类</view>
+    <view class="department-grid">
+      <view 
+        wx:for="{{departments}}"
+        wx:key="id"
+        class="department-card"
+        bindtap="selectDepartment"
+        data-id="{{item.id}}"
+      >
+        <text class="dept-name">{{item.name}}</text>
+        <text class="dept-desc">{{item.desc}}</text>
+      </view>
+    </view>
+
+    <!-- 公告通知 -->
+    <view class="section-title">医院公告</view>
+    <view class="notice-list">
+      <view 
+        wx:for="{{notices}}"
+        wx:key="id"
+        class="notice-item"
+        bindtap="viewNotice"
+        data-id="{{item.id}}"
+      >
+        <text class="notice-title">{{item.title}}</text>
+        <text class="notice-date">{{item.date}}</text>
+      </view>
+    </view>
+
+    <!-- 页面底部：医院地址和联系电话 -->
+    <view class="footer">
+      地址：{{hospitalAddress}}<br/>
+      联系电话：{{hospitalPhone}}
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 固定在屏幕底部的按钮区 -->
+<view class="fixed-bottom-bar">
+  <button bindtap="goChat">在线咨询</button>
+  <button bindtap="goFaq">常见问题</button>
+</view>

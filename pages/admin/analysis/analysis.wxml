@@ -1,0 +1,46 @@
+<view class="admin-header">
+  <button class="back-btn" bindtap="goBack">返回</button>
+  <text class="admin-title">数据分析</text>
+</view>
+<view class="analysis-section">
+  <view class="analysis-card">
+    <view class="analysis-title">挂号总数</view>
+    <text class="analysis-number">{{regCount}}</text>
+  </view>
+  <view class="analysis-card">
+    <view class="analysis-title">挂号科室分布</view>
+    <view class="analysis-list">
+      <block wx:for="{{regDept}}" wx:key="department">
+        <text>{{item.department}}：{{item.count}}</text>
+      </block>
+    </view>
+  </view>
+  <view class="analysis-card">
+    <view class="analysis-title">挂号医生分布</view>
+    <view class="analysis-list">
+      <block wx:for="{{regDoctor}}" wx:key="doctor">
+        <text>{{item.doctor}}：{{item.count}}</text>
+      </block>
+    </view>
+  </view>
+  <view class="analysis-card">
+    <view class="analysis-title">就诊人数</view>
+    <text class="analysis-number">{{visitCount}}</text>
+  </view>
+  <view class="analysis-card">
+    <view class="analysis-title">就诊科室分布</view>
+    <view class="analysis-list">
+      <block wx:for="{{visitDept}}" wx:key="department">
+        <text>{{item.department}}：{{item.count}}</text>
+      </block>
+    </view>
+  </view>
+  <view class="analysis-card">
+    <view class="analysis-title">就诊医生分布</view>
+    <view class="analysis-list">
+      <block wx:for="{{visitDoctor}}" wx:key="doctor">
+        <text>{{item.doctor}}：{{item.count}}</text>
+      </block>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,35 @@
+<view class="admin-header">
+  <button class="back-btn" bindtap="goBack">返回</button>
+  <text class="admin-title">挂号管理</text>
+</view>
+<view class="filter-bar">
+  <picker mode="selector" range="{{statusList}}" bindchange="onStatusChange">
+    <view>状态：{{statusList[selectedStatus]}}</view>
+  </picker>
+  <input type="date" bindinput="onDateChange" value="{{selectedDate}}" />
+  <button bindtap="searchRegistrations">筛选</button>
+</view>
+<scroll-view style="height: 80vh;">
+  <block wx:for="{{registrations}}" wx:key="id">
+    <view class="reg-item">
+      <text>患者：{{item.patient_name}}</text>
+      <text>科室：{{item.department_name}}</text>
+      <text>医生：{{item.doctor_name}}</text>
+      <text>时间：{{item.date}} {{item.time_slot}}</text>
+      <text>状态：{{item.status}}</text>
+      <button size="mini" bindtap="showUpdateStatus" data-id="{{item.id}}">更新状态</button>
+      <button size="mini" bindtap="showReportModal" data-patient="{{item.patient_id}}" data-doctor="{{item.doctor_id}}">上传报告</button>
+    </view>
+  </block>
+  <view wx:if="{{registrations.length === 0}}" class="empty-tip">暂无挂号信息</view>
+</scroll-view>
+<view wx:if="{{showReportModal}}" class="modal-mask">
+  <view class="modal-content">
+    <view class="modal-title">上传检查报告</view>
+    <textarea class="modal-input" placeholder="请输入检查报告内容" value="{{reportContent}}" bindinput="onReportInput"/>
+    <view class="modal-btn-row">
+      <button class="modal-btn" bindtap="closeReportModal">取消</button>
+      <button class="modal-btn" bindtap="submitReport">上传</button>
+    </view>
+  </view>
+</view>

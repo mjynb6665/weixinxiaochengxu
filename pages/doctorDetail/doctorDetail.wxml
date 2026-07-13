@@ -1,0 +1,84 @@
+<view class="doctor-detail">
+  <!-- 顶部导航 -->
+  <view class="nav-bar">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">←</text>
+      <text>返回</text>
+    </view>
+    <text class="page-title">医生详情</text>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="basic-info">
+    <view class="doctor-header">
+      <image class="avatar" src="{{doctor.avatar || '/images/default-doctor.png'}}" mode="aspectFill"/>
+      <view class="header-right">
+        <view class="name-wrap">
+          <text class="name">{{doctor.name}}</text>
+          <text class="title">{{doctor.title}}</text>
+        </view>
+        <text class="department">{{doctor.department_name || '暂无科室信息'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 详细信息 -->
+  <view class="detail-section">
+    <!-- 专长信息 -->
+    <view class="info-item">
+      <view class="info-title">
+        <text class="dot"></text>
+        <text>专业特长</text>
+      </view>
+      <view class="info-content specialty-content">
+        {{doctor.specialty || '暂无特长信息'}}
+      </view>
+    </view>
+    <!-- 出诊时间 -->
+    <view class="info-item">
+      <view class="info-title">
+        <text class="dot"></text>
+        <text>出诊时间</text>
+      </view>
+      <view class="schedule-list">
+        <block wx:if="{{doctor.scheduleArray && doctor.scheduleArray.length}}">
+          <text wx:for="{{doctor.scheduleArray}}" 
+                wx:key="*this" 
+                class="schedule-item">{{item}}</text>
+        </block>
+        <text wx:else class="no-schedule">暂无出诊安排</text>
+      </view>
+    </view>
+    <!-- 挂号费用 -->
+    <view class="info-item">
+      <view class="info-title">
+        <text class="dot"></text>
+        <text>挂号信息</text>
+      </view>
+      <view class="registration-info">
+        <view class="reg-item">
+          <text class="reg-label">挂号费</text>
+          <text class="reg-value">¥{{doctor.registration_fee || '--'}}</text>
+        </view>
+        <view class="reg-item">
+          <text class="reg-label">剩余号源</text>
+          <text class="reg-value {{doctor.max_registrations <= 0 ? 'no-quota' : ''}}">
+            {{doctor.max_registrations || 0}}个
+          </text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部挂号按钮 -->
+  <view class="bottom-bar">
+    <block wx:if="{{isProxy}}">
+      <view class="proxy-info">为 {{patientName}} 挂号</view>
+    </block>
+    <button class="reg-btn {{doctor.max_registrations <= 0 ? 'disabled' : ''}}" 
+            bindtap="goRegistration" 
+            disabled="{{doctor.max_registrations <= 0}}">
+      {{doctor.max_registrations > 0 ? '立即挂号' : '暂无号源'}}
+    </button>
+  </view>
+</view>

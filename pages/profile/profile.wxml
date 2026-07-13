@@ -1,0 +1,25 @@
+<!--pages/profile/profile.wxml-->
+<view class="profile-container">
+  <view class="back-btn" bindtap="goBack">
+    <text class="back-icon"></text>
+    <text>返回</text>
+  </view>
+  <view wx:if="{{!userInfo}}">
+    <view class="profile-header">
+      <text class="profile-name">未登录</text>
+      <button bindtap="goLogin">去登录</button>
+    </view>
+  </view>
+  <view wx:elif="{{userInfo}}">
+    <view class="profile-header">
+      <text class="profile-name">{{userInfo.name}}</text>
+      <text class="profile-phone">{{userInfo.phone}}</text>
+    </view>
+    <view class="profile-section">
+      <button bindtap="editProfile">编辑个人信息</button>
+      <button bindtap="viewRegistrations">我的挂号记录</button>
+      <button bindtap="viewVisits">我的就诊记录</button>
+      <button bindtap="logout" style="margin-top:40rpx;background:#f56c6c;">退出登录</button>
+    </view>
+  </view>
+</view>

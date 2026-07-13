@@ -1,0 +1,22 @@
+<!-- filepath: d:\weixinxiaochengxu2\pages\chat\chat.wxml -->
+<view class="chat-container">
+  <view class="back-btn" bindtap="goBack">
+    <text class="back-icon">←</text>
+    <text>返回</text>
+  </view>
+  <view class="chat-list">
+    <block wx:for="{{messages}}" wx:key="id">
+      <view class="chat-item {{item.from === 'patient' ? 'chat-patient' : 'chat-doctor'}}">
+        <text>{{item.type === 'text' ? item.content : '[图片]'}}</text>
+        <image wx:if="{{item.type === 'image'}}" src="{{item.content}}" class="chat-img"/>
+      </view>
+    </block>
+  </view>
+  <view class="chat-input-bar">
+    <input class="chat-input" placeholder="请输入内容" value="{{inputValue}}" bindinput="onInput"/>
+  </view>
+  <view class="chat-btn-bar">
+    <button bindtap="sendText">发送</button>
+    <button bindtap="chooseImage">图片</button>
+  </view>
+</view>

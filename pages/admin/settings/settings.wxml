@@ -1,0 +1,39 @@
+<!-- filepath: d:\weixinxiaochengxu2\pages\admin\settings\settings.wxml -->
+<view style="padding: 20rpx;">
+  <button class="setting-btn" style="width: 160rpx;" bindtap="goBack">返回</button>
+</view>
+
+<view class="setting-section">
+  <text class="section-title">医院信息</text>
+  <input class="setting-input" placeholder="医院名称" value="{{hospitalName}}" bindinput="onHospitalNameInput"/>
+  <input class="setting-input" placeholder="医院地址" value="{{hospitalAddress}}" bindinput="onHospitalAddressInput"/>
+  <input class="setting-input" placeholder="联系电话" value="{{hospitalPhone}}" bindinput="onHospitalPhoneInput"/>
+</view>
+
+<view class="setting-section">
+  <text class="section-title">消息通知设置</text>
+  <picker mode="selector" range="{{notifyTypes}}" value="{{registerNotifyIndex}}" bindchange="onRegisterNotifyChange">
+    <view class="picker">挂号通知：{{notifyTypes[registerNotifyIndex]}}</view>
+  </picker>
+  <picker mode="selector" range="{{notifyTypes}}" value="{{visitNotifyIndex}}" bindchange="onVisitNotifyChange">
+    <view class="picker">就诊通知：{{notifyTypes[visitNotifyIndex]}}</view>
+  </picker>
+</view>
+
+<view class="setting-section">
+  <text class="section-title">系统参数</text>
+  <checkbox-group bindchange="onPayTypeChange" value="{{selectedPayTypes}}">
+    <block wx:for="{{payTypes}}" wx:key="item">
+      <label style="display:inline-block;margin-right:32rpx;">
+        <checkbox value="{{item}}"/>{{item}}
+      </label>
+    </block>
+  </checkbox-group>
+  <input class="setting-input" placeholder="每日最大挂号数" value="{{maxRegCount}}" bindinput="onMaxRegCountInput"/>
+  <view style="margin: 20rpx 0;">
+    <switch checked="{{allowCancel}}" bindchange="onAllowCancelChange"/> 允许取消挂号
+  </view>
+</view>
+<view style="padding: 40rpx;">
+  <button class="setting-btn" bindtap="saveAllSettings">保存全部设置</button>
+</view>

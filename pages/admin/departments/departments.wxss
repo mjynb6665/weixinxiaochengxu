@@ -1,0 +1,30 @@
+.admin-dept-container { padding: 40rpx 30rpx; }
+.section-title { font-size: 30rpx; font-weight: bold; margin-bottom: 20rpx; color: #333; }
+.dept-list { margin-bottom: 30rpx; }
+.dept-item { display: flex; align-items: center; justify-content: space-between; padding: 20rpx 0; border-bottom: 1rpx solid #eee; }
+.admin-btn { background: #1890ff; color: #fff; border-radius: 8rpx; padding: 16rpx 0; font-size: 28rpx; margin-top: 20rpx; }
+.modal-mask { position: fixed; left: 0; top: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+.modal-content { background: #fff; border-radius: 16rpx; padding: 40rpx 30rpx; width: 80vw; max-width: 600rpx; box-shadow: 0 4rpx 24rpx rgba(0,0,0,0.12); }
+.modal-title { font-size: 32rpx; font-weight: bold; margin-bottom: 30rpx; color: #1890ff; text-align: center; }
+.modal-input { width: 100%; border: 1rpx solid #eee; border-radius: 8rpx; padding: 20rpx; font-size: 28rpx; margin-bottom: 30rpx; box-sizing: border-box; }
+.modal-btn-row { display: flex; justify-content: space-between; gap: 20rpx; }
+.modal-btn { flex: 1; background: #1890ff; color: #fff; border-radius: 8rpx; padding: 16rpx 0; font-size: 28rpx; }
+.back-btn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.admin-header {
+  position: relative;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.admin-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+}

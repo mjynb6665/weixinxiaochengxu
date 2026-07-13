@@ -1,0 +1,69 @@
+.filter-bar {
+  background: #f5f7fa;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 24rpx;
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+.reg-item {
+  background: #fff;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.06);
+  margin-bottom: 24rpx;
+  padding: 24rpx;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+.empty-tip {
+  color: #888;
+  text-align: center;
+  margin: 40rpx 0;
+  font-size: 28rpx;
+}
+.admin-header {
+  position: relative;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.back-btn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f5f5f5;
+  color: #1890ff;
+  border: none;
+  border-radius: 8rpx;
+  padding: 12rpx 32rpx;
+  font-size: 28rpx;
+}
+.admin-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+}
+.modal-mask {
+  position: fixed; left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3); z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-content {
+  background: #fff; border-radius: 16rpx; padding: 40rpx 30rpx;
+  width: 80vw; max-width: 600rpx; box-shadow: 0 4rpx 24rpx rgba(0,0,0,0.12);
+}
+.modal-title {
+  font-size: 32rpx; font-weight: bold; margin-bottom: 30rpx; color: #1890ff; text-align: center;
+}
+.modal-input {
+  width: 100%; border: 1rpx solid #eee; border-radius: 8rpx; padding: 20rpx;
+  font-size: 28rpx; margin-bottom: 30rpx; box-sizing: border-box;
+}
+.modal-btn-row { display: flex; justify-content: space-between; gap: 20rpx; }
+.modal-btn { flex: 1; background: #1890ff; color: #fff; border-radius: 8rpx; padding: 16rpx 0; font-size: 28rpx; }

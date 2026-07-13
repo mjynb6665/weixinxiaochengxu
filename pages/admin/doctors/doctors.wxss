@@ -1,0 +1,174 @@
+.admin-doctor-container {
+  padding: 32rpx 24rpx;
+}
+
+/* 头部样式 */
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.back-btn {
+  background: #fff;
+  border: none;
+  color: #1890ff;
+  font-size: 28rpx;
+}
+
+.admin-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 搜索栏样式 */
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.search-input {
+  flex: 1;
+  border: 1rpx solid #ccc;
+  border-radius: 8rpx;
+  padding: 16rpx;
+  font-size: 28rpx;
+  margin-right: 16rpx;
+}
+
+.search-btn {
+  background: #1890ff;
+  color: #fff;
+  border: none;
+  border-radius: 8rpx;
+  padding: 16rpx 32rpx;
+  font-size: 28rpx;
+}
+
+/* 医生列表样式 */
+.doctor-list {
+  margin-bottom: 32rpx;
+}
+
+.doctor-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.doctor-item:last-child {
+  border-bottom: none;
+}
+
+.doctor-info {
+  flex: 1;
+}
+
+.doctor-name,
+.doctor-title,
+.doctor-specialty,
+.doctor-schedule,
+.doctor-department,
+.doctor-status {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.doctor-name {
+  font-weight: bold;
+}
+
+.doctor-status {
+  color: #ff6b6b; /* 根据状态调整颜色 */
+}
+
+.doctor-actions button {
+  margin-left: 10rpx;
+}
+
+.max-registrations-input {
+  width: 150rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 8rpx;
+  padding: 10rpx;
+  font-size: 24rpx;
+}
+
+/* 添加医生按钮 */
+.admin-btn {
+  background: #1890ff;
+  color: #fff;
+  border: none;
+  border-radius: 8rpx;
+  padding: 16rpx 0;
+  font-size: 28rpx;
+  width: 100%;
+}
+
+/* 空提示样式 */
+.empty-tip {
+  text-align: center;
+  color: #888;
+  font-size: 28rpx;
+  margin: 40rpx 0;
+}
+
+/* 弹窗模态框样式 */
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 40rpx;
+  width: 80vw;
+  max-width: 600rpx;
+  box-shadow: 0 4rpx 24rpx rgba(0,0,0,0.12);
+}
+
+.modal-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1890ff;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-input {
+  margin-bottom: 20rpx;
+}
+
+.modal-btn-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-btn {
+  flex: 1;
+  background: #1890ff;
+  color: #fff;
+  border: none;
+  border-radius: 8rpx;
+  padding: 16rpx;
+  font-size: 28rpx;
+}

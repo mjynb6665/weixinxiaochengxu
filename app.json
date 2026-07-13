@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+     "pages/profile/profile",
+     "pages/edit/edit",
+    "pages/registrations/registrations",
+     "pages/visits/visits",
+    "pages/admin/dashboard",
+    "pages/admin/departments/departments",
+    "pages/doctorList/doctorList",
+    "pages/doctorDetail/doctorDetail",
+    "pages/register/register",
+    "pages/chat/chat",
+    "pages/admin/registrations/registrations",
+    "pages/admin/doctors/doctors",
+    "pages/admin/analysis/analysis",
+    "pages/admin/settings/settings",
+    "pages/faq/faq"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "renderer": "skyline",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "defaultContentBox": true,
+      "tagNameStyleIsolation": "legacy",
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

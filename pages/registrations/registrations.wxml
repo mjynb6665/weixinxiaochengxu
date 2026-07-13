@@ -1,0 +1,18 @@
+<!--pages/registrations/registrations.wxml-->
+<view class="reg-list">
+  <view class="back-btn" bindtap="goBack">
+    <text class="back-icon">←</text>
+    <text>返回</text>
+  </view>
+  <block wx:for="{{list}}" wx:key="id">
+    <view class="reg-item">
+      <text>挂号日期：{{item.date}}</text>
+      <text>医生ID：{{item.doctor_id}}</text>
+      <text>状态：{{item.status}}</text>
+      <button wx:if="{{item.status === '待就诊'}}" bindtap="cancelRegistration" data-id="{{item.id}}">取消挂号</button>
+    </view>
+  </block>
+  <block wx:if="{{list.length === 0}}">
+    <view style="text-align:center;color:#888;margin-top:80rpx;">暂无挂号记录</view>
+  </block>
+</view>

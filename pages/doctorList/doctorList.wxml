@@ -1,0 +1,50 @@
+<view class="doctor-list">
+  <!-- 顶部导航 -->
+  <view class="nav-bar">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">←</text>
+      <text>返回</text>
+    </view>
+    <text class="page-title">选择医生</text>
+  </view>
+
+  <!-- 加载中状态 -->
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 医生列表 -->
+  <view class="doctor-list-content" wx:else>
+    <block wx:if="{{doctors.length > 0}}">
+      <view class="doctor-card" wx:for="{{doctors}}" wx:key="id" bindtap="viewDoctor" data-id="{{item.id}}">
+        <image class="doctor-avatar" src="{{item.avatar || '/images/default-doctor.png'}}" mode="aspectFill"/>
+        <view class="doctor-info">
+          <view class="doctor-header">
+            <text class="doctor-name">{{item.name}}</text>
+            <text class="doctor-title">{{item.title}}</text>
+          </view>
+          <text class="doctor-specialty">专长：{{item.specialty || '暂无'}}</text>
+          <view class="doctor-schedule">
+            <text class="schedule-title">出诊时间：</text>
+            <view class="schedule-list">
+              <text wx:for="{{item.scheduleArray}}" wx:key="*this" wx:for-item="schedule" class="schedule-item">
+                {{schedule}}
+              </text>
+            </view>
+          </view>
+          <view class="doctor-footer">
+            <text class="registration-count">剩余号{{item.max_registrations || 0}}个</text>
+            <text class="registration-btn">立即预约</text>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 无数据状态 -->
+    <view class="empty-state" wx:else>
+      <image src="/images/empty-doctor.png" mode="aspectFit" class="empty-image"/>
+      <text class="empty-text">暂无可预约医生</text>
+    </view>
+  </view>
+</view>

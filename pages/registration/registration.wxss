@@ -1,0 +1,279 @@
+.container {
+  min-height: 100vh;
+  background-color: #f5f6fa;
+  padding-bottom: 40rpx;
+}
+
+.custom-nav-bar {
+  background: #ffffff;
+  padding: 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #eaeaea;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* 就诊人信息样式 */
+.patient-info {
+  background: #f8f9ff;
+  border-radius: 12rpx;
+  padding: 24rpx;
+}
+
+.current-patient {
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #eee;
+  margin-bottom: 16rpx;
+}
+
+.current-patient .label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.current-patient .value {
+  font-size: 28rpx;
+  color: #333;
+  margin-left: 16rpx;
+  font-weight: 500;
+}
+
+.proxy-section {
+  background: #ffffff;
+  border-radius: 8rpx;
+  padding: 16rpx;
+}
+
+.tips {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 12rpx;
+  padding-left: 160rpx;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  min-height: 88rpx;
+  margin-bottom: 12rpx;
+}
+
+.input-group:last-child {
+  margin-bottom: 0;
+}
+
+.input-group label {
+  font-size: 28rpx;
+  color: #333;
+  min-width: 160rpx;
+}
+
+.input-group input {
+  flex: 1;
+  height: 72rpx;
+  background: #f8f9ff;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  border: 1rpx solid #eee;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 8rpx;
+}
+
+.nav-text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.nav-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.sub-title {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 4rpx;
+}
+
+.nav-right {
+  width: 160rpx;
+}
+
+/* 主体内容 */
+.main-content {
+  padding: 24rpx;
+}
+
+.section-card {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.section-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20rpx;
+  margin-top: 20rpx;
+}
+
+.department-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  background: #f8f9ff;
+  border-radius: 12rpx;
+  transition: all 0.3s;
+}
+
+.dept-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 12rpx;
+}
+
+.dept-name {
+  font-size: 26rpx;
+  color: #333;
+  text-align: center;
+}
+
+/* 医生卡片 */
+.doctor-list {
+  margin-top: 20rpx;
+}
+
+.doctor-card {
+  display: flex;
+  padding: 24rpx;
+  background: #ffffff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  border: 1rpx solid #eaeaea;
+  transition: all 0.3s;
+}
+
+.doctor-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-right: 25rpx;
+}
+
+.doctor-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.doctor-header {
+  display: flex;
+  align-items: baseline;
+}
+
+.doctor-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-right: 16rpx;
+}
+
+.doctor-title {
+  font-size: 26rpx;
+  color: #666;
+  background: #f0f2ff;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+}
+
+.doctor-specialty {
+  font-size: 26rpx;
+  color: #666;
+  margin: 10rpx 0;
+}
+
+.doctor-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hospital {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.book-btn {
+  background: #4171ff;
+  color: #ffffff;
+  font-size: 26rpx;
+  padding: 8rpx 24rpx;
+  border-radius: 24rpx;
+  border: none;
+  line-height: 1.5;
+}
+
+.department-item:active {
+  background: #eef0ff;
+}
+
+.doctor-card:active {
+  background: #f8f9ff;
+}
+
+.book-btn:active {
+  background: #3461e6;
+}
+
+/* 自定义switch样式 */
+switch {
+  transform: scale(0.8);
+}
+
+switch .wx-switch-input {
+  background: #dcdfe6 !important;
+  border-color: #dcdfe6 !important;
+}
+
+switch .wx-switch-input.wx-switch-input-checked {
+  background: #4171ff !important;
+  border-color: #4171ff !important;
+}

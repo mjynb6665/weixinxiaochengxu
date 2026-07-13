@@ -1,0 +1,100 @@
+<view class="admin-doctor-container">
+  <!-- 头部 -->
+  <view class="admin-header">
+    <button class="back-btn" bindtap="goBack">返回</button>
+    <text class="admin-title">医生管理</text>
+  </view>
+
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input 
+      class="search-input" 
+      placeholder="输入医生姓名查找" 
+      bindinput="onSearchInput" 
+      value="{{searchName}}" 
+    />
+    <button class="search-btn" bindtap="searchDoctor">查找</button>
+  </view>
+
+  <!-- 医生列表 -->
+  <view class="doctor-list">
+    <block wx:for="{{doctors}}" wx:key="id">
+      <view class="doctor-item">
+        <view class="doctor-info">
+          <text class="doctor-name">{{item.name}}</text>
+          <text class="doctor-title">{{item.title}}</text>
+          <text class="doctor-specialty">{{item.specialty}}</text>
+          <text class="doctor-schedule">{{item.schedule}}</text>
+          <text class="doctor-department">{{item.department_name}}</text>
+          <text class="doctor-status">{{item.status == 1 ? '已上架' : '已下架'}}</text>
+        </view>
+        <view class="doctor-actions">
+          <input 
+            class="max-registrations-input" 
+            bindinput="setMaxRegistrations" 
+            data-id="{{item.id}}" 
+            value="{{item.max_registrations}}" 
+            placeholder="请输入最大挂号数量" 
+          />
+          <button size="mini" bindtap="showEditModal" data-id="{{item.id}}">编辑</button>
+          <button size="mini" type="warn" bindtap="deleteDoctor" data-id="{{item.id}}">删除</button>
+          <button size="mini" bindtap="toggleStatus" data-id="{{item.id}}" data-status="{{item.status}}">
+            {{item.status == 1 ? '下架' : '上架'}}
+          </button>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{searchResultEmpty}}" class="empty-tip">未找到相关医生</view>
+  </view>
+
+  <!-- 添加医生按钮 -->
+  <button class="admin-btn" bindtap="showAddModal">添加医生</button>
+
+  <!-- 弹窗模态框 -->
+  <view wx:if="{{showModal}}" class="modal-mask">
+    <view class="modal-content">
+      <view class="modal-title">{{modalTitle}}</view>
+      <form class="modal-form">
+        <input 
+          class="modal-input" 
+          placeholder="姓名" 
+          value="{{doctorForm.name}}" 
+          bindinput="onInputChange" 
+          data-field="name" 
+        />
+        <input 
+          class="modal-input" 
+          placeholder="职称" 
+          value="{{doctorForm.title}}" 
+          bindinput="onInputChange" 
+          data-field="title" 
+        />
+        <input 
+          class="modal-input" 
+          placeholder="专长" 
+          value="{{doctorForm.specialty}}" 
+          bindinput="onInputChange" 
+          data-field="specialty" 
+        />
+        <input 
+          class="modal-input" 
+          placeholder="科室ID" 
+          value="{{doctorForm.department_id}}" 
+          bindinput="onInputChange" 
+          data-field="department_id" 
+        />
+        <input 
+          class="modal-input" 
+          placeholder="出诊时间" 
+          value="{{doctorForm.schedule}}" 
+          bindinput="onInputChange" 
+          data-field="schedule" 
+        />
+      </form>
+      <view class="modal-btn-row">
+        <button class="modal-btn" bindtap="closeModal">取消</button>
+        <button class="modal-btn" bindtap="submitDoctor">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

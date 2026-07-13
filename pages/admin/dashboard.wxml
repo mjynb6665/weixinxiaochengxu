@@ -1,0 +1,123 @@
+<!-- filepath: d:\weixinxiaochengxu2\pages\admin\dashboard.wxml -->
+<view class="admin-dashboard">
+  <view class="admin-header">
+    <text class="admin-title">管理员后台</text>
+    <button class="logout-btn" bindtap="logout">退出登录</button>
+  </view>
+
+  <view class="admin-section">
+    <text class="section-title">病人管理</text>
+    <view class="btn-row">
+      <button class="admin-btn" bindtap="showPatientModal" data-type="add">增加</button>
+      <button class="admin-btn" bindtap="showPatientModal" data-type="delete">删除</button>
+      <button class="admin-btn" bindtap="showPatientModal" data-type="search">查找</button>
+      <button class="admin-btn" bindtap="showPatientModal" data-type="edit">修改</button>
+    </view>
+  </view>
+
+  <view class="admin-section">
+    <text class="section-title">医生管理</text>
+    <view class="btn-row">
+      <button class="admin-btn" bindtap="goDoctorManage">医生管理</button>
+    </view>
+  </view>
+
+  <view class="admin-section">
+    <text class="section-title">科室管理</text>
+    <view class="btn-row">
+      <button class="admin-btn" bindtap="goDeptManage">科室管理</button>
+    </view>
+  </view>
+
+  <view class="admin-section">
+    <text class="section-title">挂号管理</text>
+    <view class="btn-row">
+      <button class="admin-btn" bindtap="goRegistrationManage">挂号管理</button>
+    </view>
+  </view>
+
+  <view class="admin-section">
+    <text class="section-title">数据分析</text>
+    <view class="btn-row">
+      <button class="admin-btn" bindtap="goAnalysis">数据分析</button>
+    </view>
+  </view>
+
+  <view class="admin-section">
+    <text class="section-title">系统管理</text>
+    <view class="btn-row">
+      <button class="admin-btn" bindtap="goSettings">系统设置</button>
+    </view>
+  </view>
+
+  <!-- 病人操作弹窗 -->
+  <view wx:if="{{showPatientDialog}}" class="modal-mask" bindtap="closeModal">
+    <view class="modal-content" catchtap="stopPropagation">
+      <view class="modal-title">{{patientDialogTitle}}</view>
+      <!-- 修改病人：第一步只显示姓名和查找按钮 -->
+      <block wx:if="{{patientDialogType=='edit' && editStep==1}}">
+        <input class="modal-input" placeholder="请输入要修改的病人姓名" bindinput="onPatientFormInput" data-field="name" value="{{patientForm.name}}" />
+        <view class="modal-btn-row">
+          <button class="modal-btn" bindtap="closeModal">取消</button>
+          <button class="modal-btn" bindtap="searchPatientForEdit">查找</button>
+        </view>
+      </block>
+      <!-- 修改病人：第二步显示所有字段和确定按钮 -->
+      <block wx:if="{{patientDialogType=='edit' && editStep==2}}">
+        <input class="modal-input" placeholder="手机号" bindinput="onPatientFormInput" data-field="phone" value="{{patientForm.phone}}" />
+        <input class="modal-input" placeholder="密码" bindinput="onPatientFormInput" data-field="password" value="{{patientForm.password}}" />
+        <input class="modal-input" placeholder="姓名" bindinput="onPatientFormInput" data-field="name" value="{{patientForm.name}}" disabled />
+        <input class="modal-input" placeholder="身份证号" bindinput="onPatientFormInput" data-field="id_card" value="{{patientForm.id_card}}" />
+        <input class="modal-input" placeholder="性别" bindinput="onPatientFormInput" data-field="gender" value="{{patientForm.gender}}" />
+        <input class="modal-input" placeholder="出生日期(YYYY-MM-DD)" bindinput="onPatientFormInput" data-field="birth_date" value="{{patientForm.birth_date}}" />
+        <view class="modal-btn-row">
+          <button class="modal-btn" bindtap="closeModal">取消</button>
+          <button class="modal-btn" bindtap="confirmPatientAction">确定</button>
+        </view>
+      </block>
+      <!-- 其它操作弹窗内容不变 -->
+      <block wx:if="{{patientDialogType!='edit'}}">
+        <input class="modal-input" placeholder="手机号" bindinput="onPatientFormInput" data-field="phone" value="{{patientForm.phone}}" />
+        <input class="modal-input" placeholder="密码" bindinput="onPatientFormInput" data-field="password" value="{{patientForm.password}}" />
+        <input class="modal-input" placeholder="姓名" bindinput="onPatientFormInput" data-field="name" value="{{patientForm.name}}" />
+        <input class="modal-input" placeholder="身份证号" bindinput="onPatientFormInput" data-field="id_card" value="{{patientForm.id_card}}" />
+        <input class="modal-input" placeholder="性别" bindinput="onPatientFormInput" data-field="gender" value="{{patientForm.gender}}" />
+        <input class="modal-input" placeholder="出生日期(YYYY-MM-DD)" bindinput="onPatientFormInput" data-field="birth_date" value="{{patientForm.birth_date}}" />
+        <view class="modal-btn-row">
+          <button class="modal-btn" bindtap="closeModal">取消</button>
+          <button class="modal-btn" bindtap="confirmPatientAction">确定</button>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 医生操作弹窗 -->
+  <view wx:if="{{showDoctorDialog}}" class="modal-mask" bindtap="closeModal">
+    <view class="modal-content" catchtap="stopPropagation">
+      <view class="modal-title">{{doctorDialogTitle}}</view>
+      <!-- 增加/修改医生 -->
+      <block wx:if="{{doctorDialogType=='add' || doctorDialogType=='edit'}}">
+        <input class="modal-input" placeholder="医生ID(修改必填)" bindinput="onDoctorFormInput" data-field="id" value="{{doctorForm.id}}" wx:if="{{doctorDialogType=='edit'}}"/>
+        <input class="modal-input" placeholder="姓名" bindinput="onDoctorFormInput" data-field="name" value="{{doctorForm.name}}" />
+        <input class="modal-input" placeholder="职称" bindinput="onDoctorFormInput" data-field="title" value="{{doctorForm.title}}" />
+        <input class="modal-input" placeholder="专长" bindinput="onDoctorFormInput" data-field="specialty" value="{{doctorForm.specialty}}" />
+        <input class="modal-input" placeholder="科室ID" bindinput="onDoctorFormInput" data-field="department_id" value="{{doctorForm.department_id}}" />
+        <input class="modal-input" placeholder="出诊时间" bindinput="onDoctorFormInput" data-field="schedule" value="{{doctorForm.schedule}}" />
+        <input class="modal-input" placeholder="密码" bindinput="onDoctorFormInput" data-field="password" value="{{doctorForm.password}}" />
+        <view class="modal-btn-row">
+          <button class="modal-btn" bindtap="closeModal">取消</button>
+          <button class="modal-btn" bindtap="confirmDoctorAction">确定</button>
+        </view>
+      </block>
+      <!-- 删除/查找医生 -->
+      <block wx:if="{{doctorDialogType=='delete' || doctorDialogType=='search'}}">
+        <input class="modal-input" placeholder="请输入医生ID或姓名" bindinput="onDoctorFormInput" data-field="id" value="{{doctorForm.id}}" />
+        <input class="modal-input" placeholder="或姓名" bindinput="onDoctorFormInput" data-field="name" value="{{doctorForm.name}}" />
+        <view class="modal-btn-row">
+          <button class="modal-btn" bindtap="closeModal">取消</button>
+          <button class="modal-btn" bindtap="confirmDoctorAction">确定</button>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

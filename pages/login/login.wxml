@@ -1,0 +1,100 @@
+<!-- pages/login/login.wxml -->
+<view class="auth-container">
+  <!-- 返回按钮 -->
+  <view class="back-btn" bindtap="goHome">
+    <image src="/images/icon-back.png" class="back-icon"></image>
+    <text>返回</text>
+  </view>
+
+  <!-- 身份选择标签 -->
+  <view class="role-tabs">
+    <view class="tab-item {{activeTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">患者登录</view>
+    <view class="tab-item {{activeTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">医生登录</view>
+    <view class="tab-item {{activeTab === 2 ? 'active' : ''}}" bindtap="switchTab" data-index="2">管理员登录</view>
+  </view>
+
+  <!-- 登录表单 -->
+  <view class="form-container">
+    <view class="form-item" wx:if="{{activeTab === 0 || activeTab === 1}}">
+      <image src="/images/icon-user.png" class="input-icon"></image>
+      <input type="text" placeholder="请输入手机号" bindinput="onPhoneInput" value="{{phone}}" />
+    </view>
+    <view class="form-item" wx:if="{{activeTab === 2}}">
+      <image src="/images/icon-user.png" class="input-icon"></image>
+      <input type="text" placeholder="请输入管理员账号" bindinput="onAdminAccountInput" value="{{adminAccount}}" />
+    </view>
+    <view class="form-item">
+      <image src="/images/icon-lock.png" class="input-icon"></image>
+      <input password placeholder="请输入密码" bindinput="onPasswordInput" value="{{password}}" />
+    </view>
+    <view class="form-item" wx:if="{{activeTab === 1}}">
+      <image src="/images/icon-id.png" class="input-icon"></image>
+      <input type="text" placeholder="请输入工号" bindinput="onStaffIdInput" value="{{staffId}}" />
+    </view>
+    <view class="action-row">
+      <text class="link-text" bindtap="toRegister">注册账号</text>
+      <text class="link-text" bindtap="forgotPassword">忘记密码</text>
+    </view>
+    <button class="submit-btn" bindtap="handleLogin" loading="{{loading}}">
+      {{activeTab === 0 ? '患者登录' : activeTab === 1 ? '医生登录' : '管理员登录'}}
+    </button>
+  </view>
+</view>
+
+<!-- 注册弹窗 -->
+<view class="modal-mask" wx:if="{{showRegisterModal}}" bindtap="closeModalByMask">
+  <view class="register-modal" catchtap="noop">
+    <view class="modal-header">
+      <text class="modal-title">新用户注册</text>
+      <image src="/images/icon-close.png" class="close-icon" bindtap="closeModal"></image>
+    </view>
+    <view class="form-item">
+      <image src="/images/icon-user.png" class="input-icon"></image>
+      <input type="text" placeholder="请输入手机号" bindinput="onRegPhoneInput" value="{{regPhone}}" />
+    </view>
+    <view class="form-item">
+      <image src="/images/icon-lock.png" class="input-icon"></image>
+      <input password placeholder="设置登录密码" bindinput="onRegPasswordInput" value="{{regPassword}}" />
+    </view>
+    <view class="form-item">
+      <image src="/images/icon-user.png" class="input-icon"></image>
+      <input type="text" placeholder="请输入姓名" bindinput="onRegNameInput" value="{{regName}}" />
+    </view>
+    <view class="form-item">
+      <image src="/images/icon-idcard.png" class="input-icon"></image>
+      <input type="idcard" placeholder="请输入身份证号" bindinput="onIdCardInput" value="{{idCard}}" />
+    </view>
+    <view class="form-item">
+      <image src="/images/icon-gender.png" class="input-icon"></image>
+      <picker mode="selector" range="{{['男','女']}}" bindchange="onRegGenderChange">
+        <view class="picker">{{regGender || '请选择性别'}}</view>
+      </picker>
+    </view>
+    <view class="form-item">
+      <image src="/images/icon-date.png" class="input-icon"></image>
+      <input type="date" placeholder="请选择出生日期" value="{{regBirthDate}}" bindinput="onRegBirthDateInput" />
+    </view>
+    <button class="submit-btn" bindtap="handleRegister" loading="{{regLoading}}">立即注册</button>
+    <button class="back-btn" style="margin-top:30rpx;" bindtap="closeModal">返回</button>
+  </view>
+</view>
+
+<!-- 忘记密码弹窗 -->
+<view class="modal-mask" wx:if="{{showResetModal}}" bindtap="closeResetByMask">
+  <view class="register-modal" catchtap="noop">
+    <view class="modal-header">
+      <text class="modal-title">重置密码</text>
+      <image src="/images/icon-close.png" class="close-icon" bindtap="closeResetModal"></image>
+    </view>
+    <view class="form-item">
+      <image src="/images/icon-user.png" class="input-icon"></image>
+      <input type="text" placeholder="请输入手机号" bindinput="onResetPhoneInput" value="{{resetPhone}}" />
+    </view>
+    <view class="form-item">
+      <image src="/images/icon-lock.png" class="input-icon"></image>
+      <input password placeholder="请输入新密码" bindinput="onResetPasswordInput" value="{{resetPassword}}" />
+    </view>
+    <button class="submit-btn" bindtap="handleResetPassword" loading="{{resetLoading}}">重置密码</button>
+    <button class="back-btn" style="margin-top:30rpx;" bindtap="closeResetModal">返回</button>
+  </view>
+</view>

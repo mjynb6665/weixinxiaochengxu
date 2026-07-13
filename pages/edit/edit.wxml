@@ -1,0 +1,13 @@
+<!-- filepath: d:\weixinxiaochengxu2\pages\edit\edit.wxml -->
+<view class="edit-container">
+  <view class="back-btn" bindtap="goBack">
+    <text class="back-icon"></text>
+    <text>返回</text>
+  </view>
+  <input class="edit-input" placeholder="姓名" value="{{userInfo.name}}" data-field="name" bindinput="onInput"/>
+  <input class="edit-input" placeholder="手机号" value="{{userInfo.phone}}" data-field="phone" bindinput="onInput"/>
+  <input class="edit-input" placeholder="身份证号" value="{{userInfo.id_card}}" data-field="id_card" bindinput="onInput"/>
+  <input class="edit-input" placeholder="性别" value="{{userInfo.gender}}" data-field="gender" bindinput="onInput"/>
+  <input class="edit-input" placeholder="出生日期" value="{{userInfo.birth_date}}" data-field="birth_date" bindinput="onInput"/>
+  <button class="save-btn" bindtap="saveProfile">保存</button>
+</view>

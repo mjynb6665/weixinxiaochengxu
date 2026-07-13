@@ -1,0 +1,62 @@
+.admin-header {
+  position: relative;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f7fa;
+  margin-bottom: 24rpx;
+}
+.back-btn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f5f5f5;
+  color: #1890ff;
+  border: none;
+  border-radius: 8rpx;
+  padding: 12rpx 32rpx;
+  font-size: 28rpx;
+}
+.admin-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+  color: #1890ff;
+}
+.analysis-section {
+  padding: 32rpx;
+}
+.analysis-card {
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.06);
+  margin-bottom: 32rpx;
+  padding: 32rpx 24rpx;
+}
+.analysis-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 18rpx;
+  border-left: 8rpx solid #1890ff;
+  padding-left: 16rpx;
+}
+.analysis-list {
+  margin-left: 16rpx;
+}
+.analysis-list text {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+}
+.analysis-number {
+  font-size: 48rpx;
+  color: #fa541c;
+  font-weight: bold;
+  margin-bottom: 18rpx;
+  display: block;
+}

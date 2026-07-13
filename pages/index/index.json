@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "阳光医院",
+  "navigationBarBackgroundColor": "#1890ff",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#f5f7fa",
+  "enablePullDownRefresh": false
+}

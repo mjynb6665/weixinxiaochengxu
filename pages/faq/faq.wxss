@@ -1,0 +1,16 @@
+.faq-container { padding: 32rpx; }
+.faq-title { font-size: 36rpx; font-weight: bold; margin-bottom: 24rpx; }
+.faq-item { margin-bottom: 32rpx; }
+.faq-q { font-size: 30rpx; color: #1890ff; margin-bottom: 8rpx; }
+.faq-a { font-size: 28rpx; color: #333; }
+.back-btn {
+  display: flex;
+  align-items: center;
+  color: #1890ff;
+  font-size: 32rpx;
+  margin-bottom: 24rpx;
+}
+.back-icon {
+  font-size: 40rpx;
+  margin-right: 8rpx;
+}

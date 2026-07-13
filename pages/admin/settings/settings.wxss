@@ -1,0 +1,36 @@
+.setting-section {
+  background: #fff;
+  border-radius: 12rpx;
+  margin: 30rpx 20rpx;
+  padding: 30rpx 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #1890ff;
+}
+.setting-input {
+  width: 100%;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}
+.setting-btn {
+  background: #1890ff;
+  color: #fff;
+  border-radius: 8rpx;
+  padding: 16rpx 0;
+  font-size: 28rpx;
+  width: 100%;
+  margin-top: 20rpx;
+}
+.picker {
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: #333;
+}

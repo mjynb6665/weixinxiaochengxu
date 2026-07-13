@@ -1,0 +1,108 @@
+.reg-container {
+  padding: 20px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.form-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  border-left: 4px solid #4171ff;
+}
+
+.form-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.form-item:last-child {
+  border-bottom: none;
+}
+
+.form-item text {
+  color: #666;
+  font-size: 14px;
+}
+
+.info-value {
+  color: #333;
+  font-size: 14px;
+}
+
+.form-item input {
+  flex: 1;
+  margin-left: 15px;
+  height: 35px;
+  background: #f8f8f8;
+  border-radius: 4px;
+  padding: 0 10px;
+  text-align: left;
+}
+
+.picker {
+  color: #333;
+  font-size: 14px;
+  padding: 20rpx;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.back-icon {
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.pay-radio {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.submit-btn {
+  margin-top: 30px;
+  width: 90%;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 22px;
+  background: #4171ff;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+}
+
+.submit-btn:active {
+  opacity: 0.9;
+}
+
+switch {
+  transform: scale(0.8);
+}

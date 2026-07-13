@@ -1,0 +1,19 @@
+<!--pages/visits/visits.wxml-->
+<view class="visit-list">
+  <view class="back-btn" bindtap="goBack">
+    <text class="back-icon">←</text>
+    <text>返回</text>
+  </view>
+  <block wx:if="{{list.length > 0}}">
+    <block wx:for="{{list}}" wx:key="id">
+      <view class="visit-item">
+        <text>就诊日期：{{item.date}}</text>
+        <text>医生ID：{{item.doctor_id}}</text>
+        <text>诊断：{{item.diagnosis}}</text>
+      </view>
+    </block>
+  </block>
+  <block wx:else>
+    <view style="text-align:center;color:#888;margin-top:80rpx;">暂无就诊记录</view>
+  </block>
+</view>
